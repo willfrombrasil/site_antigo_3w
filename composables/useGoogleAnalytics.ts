@@ -138,6 +138,17 @@ export const useGoogleAnalytics = () => {
           page_location: page
         })
       }
+    },
+
+    // Cookie consent tracking
+    cookieConsent: (consent: 'accepted' | 'rejected', analyticsEnabled: boolean) => {
+      if (typeof $trackEvent === 'function') {
+        $trackEvent('cookie_consent', {
+          event_category: 'privacy',
+          consent_type: consent,
+          analytics_enabled: analyticsEnabled
+        })
+      }
     }
   }
 

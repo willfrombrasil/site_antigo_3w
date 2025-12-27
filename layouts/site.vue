@@ -3,20 +3,24 @@
     <div class="layout-wrapper min-h-screen bg-gray-50">
       <!-- Cabeçalho -->
       <Header />
-  
+
       <!-- Conteúdo principal -->
       <main class="layout-content">
         <slot />
       </main>
-  
+
       <!-- Rodapé -->
       <Footer />
+
+      <!-- Banner de Cookies (LGPD) -->
+      <CookieBanner />
     </div>
 </template>
 
 <script setup>
     import Header from '~/components/site/Header.vue'
     import Footer from '~/components/site/Footer.vue'
+    import CookieBanner from '~/components/CookieBanner.vue'
 </script>
   
 <style>

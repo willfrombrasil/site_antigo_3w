@@ -138,138 +138,32 @@
     <section class="py-20 lg:py-28 bg-gray-50">
       <div class="container mx-auto px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          <!-- Form -->
+          <!-- Form Iframe Freshdesk -->
           <div>
             <div class="mb-8">
               <h2 class="text-3xl lg:text-4xl font-bold text-secondary-800 mb-4">
-                Envie sua <span class="text-primary-600">mensagem</span>
+                Fale <span class="text-primary-600">Conosco</span>
               </h2>
               <p class="text-xl text-secondary-600 leading-relaxed">
-                Preencha o formulário abaixo com os detalhes do seu projeto. 
+                Preencha o formulário abaixo com os detalhes do seu projeto.
                 Retornaremos em até 24 horas com uma proposta personalizada.
               </p>
             </div>
 
-            <form class="space-y-6" @submit.prevent="submitForm">
-              <!-- Name -->
-              <div>
-                <label for="name" class="block text-sm font-semibold text-secondary-700 mb-2">
-                  Nome Completo *
-                </label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  v-model="form.name"
-                  required
-                  class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                  placeholder="Seu nome completo"
-                />
-              </div>
+            <div class="bg-white rounded-3xl p-4 shadow-soft border border-gray-100">
+              <iframe
+                title="Formulário de Contato"
+                src="https://3wonline.freshdesk.com/widgets/feedback_widget/new?&widgetType=embedded&formTitle=Fale+conosco&submitTitle=Enviar&submitThanks=Mensagem+Enviada+com+Sucesso"
+                class="w-full h-[530px] border-0 rounded-xl"
+                loading="lazy"
+              ></iframe>
+            </div>
 
-              <!-- Email -->
-              <div>
-                <label for="email" class="block text-sm font-semibold text-secondary-700 mb-2">
-                  E-mail *
-                </label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  v-model="form.email"
-                  required
-                  class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                  placeholder="seu@email.com"
-                />
-              </div>
-
-              <!-- Phone -->
-              <div>
-                <label for="phone" class="block text-sm font-semibold text-secondary-700 mb-2">
-                  Telefone/WhatsApp
-                </label>
-                <input 
-                  type="tel" 
-                  id="phone" 
-                  v-model="form.phone"
-                  class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                  placeholder="(41) 99999-9999"
-                />
-              </div>
-
-              <!-- Service Type -->
-              <div>
-                <label for="service" class="block text-sm font-semibold text-secondary-700 mb-2">
-                  Tipo de Serviço *
-                </label>
-                <select 
-                  id="service" 
-                  v-model="form.service"
-                  required
-                  class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                >
-                  <option value="">Selecione o serviço de interesse</option>
-                  <option value="desenvolvimento-software">Desenvolvimento de Software</option>
-                  <option value="site-institucional">Site Institucional</option>
-                  <option value="e-commerce">E-commerce</option>
-                  <option value="marketing-digital">Marketing Digital</option>
-                  <option value="gestao-redes-sociais">Gestão de Redes Sociais</option>
-                  <option value="campanhas-anuncios">Campanhas de Anúncios</option>
-                  <option value="seo">SEO & Marketing de Conteúdo</option>
-                  <option value="consultoria">Consultoria Digital</option>
-                  <option value="outros">Outros</option>
-                </select>
-              </div>
-
-              <!-- Budget -->
-              <div>
-                <label for="budget" class="block text-sm font-semibold text-secondary-700 mb-2">
-                  Orçamento Estimado
-                </label>
-                <select 
-                  id="budget" 
-                  v-model="form.budget"
-                  class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                >
-                  <option value="">Selecione uma faixa de investimento</option>
-                  <option value="ate-5k">Até R$ 5.000</option>
-                  <option value="5k-10k">R$ 5.000 - R$ 10.000</option>
-                  <option value="10k-25k">R$ 10.000 - R$ 25.000</option>
-                  <option value="25k-50k">R$ 25.000 - R$ 50.000</option>
-                  <option value="acima-50k">Acima de R$ 50.000</option>
-                  <option value="a-definir">A definir</option>
-                </select>
-              </div>
-
-              <!-- Message -->
-              <div>
-                <label for="message" class="block text-sm font-semibold text-secondary-700 mb-2">
-                  Detalhes do Projeto *
-                </label>
-                <textarea 
-                  id="message" 
-                  v-model="form.message"
-                  required
-                  rows="5"
-                  class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-none"
-                  placeholder="Descreva seu projeto, objetivos e qualquer informação relevante que possa nos ajudar a entender melhor suas necessidades..."
-                ></textarea>
-              </div>
-
-              <!-- Submit Button -->
-              <button 
-                type="submit"
-                :disabled="isSubmitting"
-                class="w-full inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white font-semibold rounded-2xl hover:from-primary-700 hover:to-primary-600 transform hover:scale-105 transition-all duration-300 shadow-large hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <i v-if="!isSubmitting" class="fas fa-paper-plane mr-3"></i>
-                <i v-else class="fas fa-spinner fa-spin mr-3"></i>
-                {{ isSubmitting ? 'Enviando...' : 'Enviar Mensagem' }}
-              </button>
-
-              <p class="text-sm text-secondary-500 text-center">
-                Ao enviar este formulário, você concorda com nossa política de privacidade. 
-                Seus dados serão utilizados apenas para contato comercial.
-              </p>
-            </form>
+            <p class="text-sm text-secondary-500 text-center mt-4">
+              Ao enviar este formulário, você concorda com nossa
+              <NuxtLink to="/politica-privacidade" class="text-primary-600 hover:underline">política de privacidade</NuxtLink>.
+              Seus dados serão utilizados apenas para contato comercial.
+            </p>
           </div>
 
           <!-- Info Panel -->
